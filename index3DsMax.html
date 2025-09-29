@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artem Vashchinskiy | Layout Designer</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <link rel="shortcut icon" href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgaGVpZ2h0PSIyNDAiCiAgIHZpZXdCb3g9IjAgMCAzNTUgMjQwIgogICB3aWR0aD0iMzU1IgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcyMSIKICAgc29kaXBvZGk6ZG9jbmFtZT0iZmlmdGgtd2F2ZS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMy4yICgwOTFlMjBlLCAyMDIzLTExLTI1LCBjdXN0b20pIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcwogICAgIGlkPSJkZWZzMjEiIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJuYW1lZHZpZXcyMSIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiMwMDAwMDAiCiAgICAgYm9yZGVyb3BhY2l0eT0iMC4yNSIKICAgICBpbmtzY2FwZTpzaG93cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgaW5rc2NhcGU6ZGVza2NvbG9yPSIjZDFkMWQxIgogICAgIGlua3NjYXBlOnpvb209IjEuNDUwNzA0MiIKICAgICBpbmtzY2FwZTpjeD0iMTc3LjUiCiAgICAgaW5rc2NhcGU6Y3k9IjEyMC4yODY0MSIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjEzNjYiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iNzA1IgogICAgIGlua3NjYXBlOndpbmRvdy14PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iLTgiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmcyMSIgLz4KICA8bGluZWFyR3JhZGllbnQKICAgICBpZD0iYSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzU0NmRiNCIKICAgICAgIGlkPSJzdG9wMSIgLz4KICAgIDxzdG9wCiAgICAgICBvZmZzZXQ9Ii41IgogICAgICAgc3RvcC1jb2xvcj0iIzUwODliOSIKICAgICAgIGlkPSJzdG9wMiIgLz4KICAgIDxzdG9wCiAgICAgICBvZmZzZXQ9IjEiCiAgICAgICBzdG9wLWNvbG9yPSIjNTQ2ZGI0IgogICAgICAgaWQ9InN0b3AzIiAvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPGxpbmVhckdyYWRpZW50CiAgICAgaWQ9ImIiCiAgICAgeDE9IjMxOC45ODEwNCIKICAgICB4Mj0iMzMyLjk4MDE3IgogICAgIHhsaW5rOmhyZWY9IiNhIgogICAgIHkxPSIxMDcuNTQ1OTEiCiAgICAgeTI9IjQ4LjgxNDg2NSIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ic2NhbGUoMC41ODM0Nzc3MSwxLjcxMzg2MTUpIgogICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiAvPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJjIgogICAgIHgxPSIxNDguMzE5NTciCiAgICAgeDI9IjE5Ny44NTMxOCIKICAgICB5MT0iNC44MjU4MzkyIgogICAgIHkyPSIxODEuMDMxMjgiCiAgICAgZ3JhZGllbnRUcmFuc2Zvcm09InNjYWxlKDAuNzc2NDQyOTksMS4yODc5MjQ2KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzQ5YzJjMiIKICAgICAgIGlkPSJzdG9wNCIgLz4KICAgIDxzdG9wCiAgICAgICBvZmZzZXQ9IjEiCiAgICAgICBzdG9wLWNvbG9yPSIjNTI4MGI3IgogICAgICAgaWQ9InN0b3A1IiAvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPGxpbmVhckdyYWRpZW50CiAgICAgaWQ9ImQiPgogICAgPHN0b3AKICAgICAgIG9mZnNldD0iMCIKICAgICAgIHN0b3AtY29sb3I9IiM1MjgwYjciCiAgICAgICBpZD0ic3RvcDYiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzQ5YzJjMiIKICAgICAgIGlkPSJzdG9wNyIgLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJlIgogICAgIHgxPSIyNjguMjAwMjgiCiAgICAgeDI9IjI5OC45NjQ4NyIKICAgICB4bGluazpocmVmPSIjZCIKICAgICB5MT0iMTQ5LjU5MDkxIgogICAgIHkyPSI0Ny42MzczMjMiCiAgICAgZ3JhZGllbnRUcmFuc2Zvcm09InNjYWxlKDAuODA0MzgyOSwxLjI0MzE4OSkiCiAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIC8+CiAgPGxpbmVhckdyYWRpZW50CiAgICAgaWQ9ImYiCiAgICAgeDE9IjQ1My44NTM4NiIKICAgICB4Mj0iNDYzLjc1NTYzIgogICAgIHhsaW5rOmhyZWY9IiNhIgogICAgIHkxPSIxMDEuMzI1ODEiCiAgICAgeTI9IjYxLjg5NjI3IgogICAgIGdyYWRpZW50VHJhbnNmb3JtPSJzY2FsZSgwLjU5ODg5NTU1LDEuNjY5NzQwMikiCiAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIC8+CiAgPGxpbmVhckdyYWRpZW50CiAgICAgaWQ9ImciCiAgICAgeDE9IjI2LjY5NDM5IgogICAgIHgyPSIxMDUuMDU1MjEiCiAgICAgeTE9IjE0Mi43NTA3OCIKICAgICB5Mj0iNDYuMzAyNTUyIgogICAgIGdyYWRpZW50VHJhbnNmb3JtPSJzY2FsZSgwLjkwMTMyOTA4LDEuMTA5NDcyNykiCiAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgPHN0b3AKICAgICAgIG9mZnNldD0iMCIKICAgICAgIHN0b3AtY29sb3I9IiM1MDg5YjkiCiAgICAgICBpZD0ic3RvcDgiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzU0NmRiNCIKICAgICAgIGlkPSJzdG9wOSIgLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJoIgogICAgIHgxPSIyNzkuNTY2NCIKICAgICB4Mj0iMjk2LjYwMzg0IgogICAgIHhsaW5rOmhyZWY9IiNkIgogICAgIHkxPSIxNTIuMDQyNTIiCiAgICAgeTI9Ijk3LjUxMTI1NiIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ic2NhbGUoMS4wNzk4NDg2LDAuOTI2MDU1NzIpIgogICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiAvPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJpIj4KICAgIDxzdG9wCiAgICAgICBvZmZzZXQ9IjAiCiAgICAgICBzdG9wLWNvbG9yPSIjNTQ2ZGI0IgogICAgICAgc3RvcC1vcGFjaXR5PSIuNiIKICAgICAgIGlkPSJzdG9wMTAiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzNmNTI4NyIKICAgICAgIGlkPSJzdG9wMTEiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8bGluZWFyR3JhZGllbnQKICAgICBpZD0iaiIKICAgICB4MT0iMTAxLjkzMTE3IgogICAgIHgyPSIxMTYuMjc4OCIKICAgICB4bGluazpocmVmPSIjaSIKICAgICB5MT0iNjIuNjMwMyIKICAgICB5Mj0iMzAuOTI1OTk2IgogICAgIGdyYWRpZW50VHJhbnNmb3JtPSJzY2FsZSgwLjgwMzg4MTc0LDEuMjQzOTY0MSkiCiAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIC8+CiAgPGxpbmVhckdyYWRpZW50CiAgICAgaWQ9ImsiCiAgICAgeDE9IjI1OS4zMDk2NSIKICAgICB4Mj0iMjcwLjg4NjQxIgogICAgIHhsaW5rOmhyZWY9IiNpIgogICAgIHkxPSI4Ni4zNjU2NDgiCiAgICAgeTI9IjU2LjEwMzAyNCIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ic2NhbGUoMC43MzkxODE4LDEuMzUyODQ3MikiCiAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIC8+CiAgPGxpbmVhckdyYWRpZW50CiAgICAgaWQ9ImwiCiAgICAgeDE9IjI3MC4xODYyNCIKICAgICB4Mj0iMjgzLjUyNTk5IgogICAgIHhsaW5rOmhyZWY9IiNpIgogICAgIHkxPSI4My4yMjc3OTIiCiAgICAgeTI9IjEzNS45OTQyNyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ic2NhbGUoMC42NjE3NDI4MSwxLjUxMTE2MTEpIgogICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiAvPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJtIgogICAgIHgxPSI0NTQuMjQyODYiCiAgICAgeDI9IjQ2MC45OTExNCIKICAgICB4bGluazpocmVmPSIjaSIKICAgICB5MT0iNzIuODY1NDM2IgogICAgIHkyPSIxMDYuNjg2NDYiCiAgICAgZ3JhZGllbnRUcmFuc2Zvcm09InNjYWxlKDAuNTg3ODkwMDMsMS43MDA5OTg0KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgLz4KICA8bGluZWFyR3JhZGllbnQKICAgICBpZD0ibiIKICAgICB4MT0iMjY0Ljg5OTk5IgogICAgIHgyPSIyNzQuNzk3MTIiCiAgICAgeGxpbms6aHJlZj0iI2kiCiAgICAgeTE9IjExNC4wNDIwMSIKICAgICB5Mj0iMTAwLjk5NTg4IgogICAgIGdyYWRpZW50VHJhbnNmb3JtPSJzY2FsZSgxLjA0MDgxMTIsMC45NjA3ODkwMSkiCiAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIC8+CiAgPGcKICAgICBmaWxsPSJub25lIgogICAgIGZpbGwtcnVsZT0ibm9uemVybyIKICAgICBpZD0iZzIxIgogICAgIHRyYW5zZm9ybT0icm90YXRlKDkwLDE3OS4yMDM0LDEyMS4yMjk0NCkiPgogICAgPHBhdGgKICAgICAgIGQ9Im0gMTczLjcxMDM5LDcxLjU4Njk1NyAtOC4yOTAwMSw0Ny4xNTgyMTMgMTMuOTk4MTgsNzkuNDIyNTEgYyAwLjQyMjY2LDEuNjM4NTkgMS4xNzkwNSwzLjE3MjI4IDIuMjIxNzksNC41MDUwNiAyLjU4MjE2LDIuOTgzMTQgNi4zMDM5Nyw0LjczNzIxIDEwLjI0ODM1LDQuODI5OTggMy41MTI0MSwwLjA1MTUgNi45MTkzOSwtMS4xOTk5MiA5LjU2MzM3LC0zLjUxMjcxIDEuNDYzNCwtMS4zNDMyOCAyLjQ2MDE0LC0zLjExODM2IDIuODQ1MywtNS4wNjcxIGwgMC44NzgxOCwtNC45NzkyNyA3Ljk0NzUyLC00NS4yOTY0OCAxLjk0MDc3LC0xMS4wMDM1OCAtMTEuMDU2MjcsLTYyLjc3MjIzMyBjIC0wLjc5MDM2LC01LjY1NTQ3MyAtMy45NjA1OSwtOC40MDQxNzMgLTMuOTYwNTksLTguNDA0MTczIC0zLjIzOTMzLC0zLjIyMzYzNCAtNy42NzU0NiwtNC45NTE2MjMgLTEyLjI0MTgxLC00Ljc2ODUxMiAtMy4wMjY4NCwwLjExMTU2MSAtNS45NzMzOSwxLjAwMzk5NSAtOC41NTM0NywyLjU5MDYyOCAtMi43NzkyNiwxLjU3MDk5OCAtNC43OTQzMSw0LjIxMTE5MiAtNS41NzY0Myw3LjMwNjQ0OSIKICAgICAgIGZpbGw9InVybCgjYikiCiAgICAgICBpZD0icGF0aDExIgogICAgICAgc3R5bGU9ImZpbGw6dXJsKCNiKSIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJtIDIwNC4zNDEyOCwxOTguODg3NzkgYyAtMC4zODUxNiwxLjk0ODc0IC0xLjM4MTksMy43MjM4MSAtMi44NDUzLDUuMDY3MDkgLTIuNjQzOTgsMi4zMTI3OSAtNi4wNTA5NiwzLjU2NDIxIC05LjU2MzM3LDMuNTEyNzIgLTMuOTQ0MzgsLTAuMDkyOCAtNy42NjYxOSwtMS44NDY4NCAtMTAuMjQ4MzUsLTQuODI5OTkgLTEuMDQyNzUsLTEuMzMyNzggLTEuNzk5MTMsLTIuODY2NDcgLTIuMjIxNzksLTQuNTA1MDYgTCAxNTkuNTU0MTUsODUuMzM5MjQxIDE1MS4zODcwOCwzOS43MjY2MjMgQyAxNDkuODcwMTYsMjkuMDk1MjE1IDE0NC40MTMwMiwxOS40MjIxOTcgMTM2LjA5Nzk5LDEyLjYyNjAxOSAxMjcuNTYxNDMsNS43NjA1ODc4IDExNi45Mzk5OCwyLjAwOTQ3MjYgMTA1Ljk4NTIzLDEuOTkxMjcwOSA5Mi41MTM5NjMsMS41Njk3NDUgODEuNDU3Njg5LDcuOTAxNDE1NiA4MS40NTc2ODksNy45MDE0MTU2IDY0LjIxMDI1NCwxNi42ODMyMDYgNjEuNDc5MTE3LDMyLjgzMjkxOCA2MS40NzkxMTcsMzIuODMyOTE4IGwgLTAuOTMwODcsNS4yNjkwNzQgYyAwLjY0NzEyNSwtMy4xMzA5ODEgMi4zMDM4MiwtNS45NjMwOTggNC43MTU4MjEsLTguMDYxNjg0IDMuOTg2OTMzLC0zLjM5ODU1MiA3Ljg1MDkyMSwtNS4wODQ2NTYgMTQuODA2MDk4LC01LjI2OTA3NCAwLDAgOS4zMzUwNDMsMC4yMDE5ODIgMTQuNjgzMTUzLDcuMTc0NzIzIDAsMCAyLjgxMDE3MywyLjYzNDUzNyA0LjA3NDc1MSw5Ljc4MjkxNCBsIDIuMzQ0NzQsMTMuMjk1NjMgMjcuNzY4MDIsMTU2LjQ0NzU4OSBjIDAsMCAxLjM0MzYxLDEyLjQzNTAyIDEzLjg3NTIzLDIxLjc4NzYyIDAsMCA5Ljc4MjkxLDcuMTkyMjkgMjEuMDc2MjksNy4yMjc3NCAxMS4yOTMzOCwwLjAzNDggMjAuODY1NTQsLTIuNzkyOTMgMjkuNzM1MTQsLTEwLjkzMzY1IDAsMCA2LjI3ODk4LC01Ljg5MjU4IDcuNTY5OTEsLTEzLjIxNjYgeiIKICAgICAgIGZpbGw9InVybCgjYykiCiAgICAgICBpZD0icGF0aDEyIgogICAgICAgc3R5bGU9ImZpbGw6dXJsKCNjKSIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJtIDE3My43MTAzOSw3MS41ODY5NTcgMC44MjU0OSwtNC43MjQ2MDMgYyAxLjQ4NDQsLTYuMTk5ODUxIDQuOTQ2LC0xMS43NDgyODIgOS44NjE5NSwtMTUuODA3MjIyIDcuNzg3MjUsLTYuMjc1MTU0IDE3LjUxMjk1LC05LjY0OTUwNiAyNy41MTMzNSwtOS41NDU4MDYgOS43MzYsMC4wMDggMTkuMTQxNTUsMy41MzE5OCAyNi40ODU4OCw5LjkyMzQyMyA4LjIxMDk3LDcuMDI1NDMyIDEwLjY2OTg4LDE1LjIzNjQwNiAxMi4wNTc0LDIzLjQwMzQ3MSBsIDE3LjI3Mzc4LDk4LjIyNDMyIDEuMTc2NzYsNi42ODI5NCBjIDAuMTg1ODEsMC45Nzk5NiAwLjYzNTE0LDEuODkwNzcgMS4yOTk3LDIuNjM0NTQgMS4yMDU0MiwxLjMyOTYzIDIuOTEyNCwyLjA5Mzk1IDQuNzA3MDQsMi4xMDc2MyAxLjcwMTEyLC0wLjAzNzIgMy4zMzc5MiwtMC42NTcyMSA0LjYzNjc5LC0xLjc1NjM2IDAuNzM2MjQsLTAuNzM1MjQgMS4yMTEyNywtMS42OTE0NyAxLjM1MjM5LC0yLjcyMjM1IGwgLTAuMDYxNSwwLjMyNDkyIC0xLjQ1Nzc4LDguNDY1NjUgYyAtMS43MDM3NCw1LjgyMzA2IC01LjU4MDMxLDEwLjc2ODU4IC0xMC44Mjc5NCwxMy44MTM3NSAtNS4xOTQ0LDMuMDYyNDEgLTExLjEzMDI0LDQuNjM5MDIgLTE3LjE1OTYyLDQuNTU3NzUgLTEzLjA0MDk2LC0wLjQ0Nzg3IC0xOS45Njk3OSwtNy45MDM2MSAtMTkuOTY5NzksLTcuOTAzNjEgLTcuMzQxNTgsLTYuODY3MzYgLTguMDUyOSwtMTQuNzE4MjggLTguMDUyOSwtMTQuNzE4MjggTCAyMTYuNTU2NzUsMTQ1LjkwNzI1IDIwNC4wNDI3LDc0Ljg1Mzc4MyBjIC0wLjc5MDM2LC01LjY1NTQ3MyAtMy45NjA1OSwtOC40MDQxNzMgLTMuOTYwNTksLTguNDA0MTczIC0zLjIzOTM0LC0zLjIyMzYzNCAtNy42NzU0NiwtNC45NTE2MjMgLTEyLjI0MTgyLC00Ljc2ODUxMiAtMy4wMjY4MywwLjExMTU2MSAtNS45NzMzOCwxLjAwMzk5NiAtOC41NTM0NiwyLjU5MDYyOCAtMi43ODExNiwxLjU3MzAwMyAtNC43OTY0Nyw0LjIxNjcwOSAtNS41NzY0NCw3LjMxNTIzMSB6IgogICAgICAgZmlsbD0idXJsKCNlKSIKICAgICAgIGlkPSJwYXRoMTMiCiAgICAgICBzdHlsZT0iZmlsbDp1cmwoI2UpIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Im0gMjYxLjk4NDk1LDk5LjE3MDU2IGMgMS4xNDY2MiwtMi42MzU4NyAzLjEzNTc5LC00LjgxNjU0OCA1LjY1NTQ3LC02LjE5OTk0NCAyLjMzMTUsLTEuMjMwNiA0LjkzMzc2LC0xLjg1ODUyNCA3LjU2OTksLTEuODI2NjEyIDQuMDM0NjEsMC4wMjc1OCA3Ljg2Njc1LDEuNzcxMjA4IDEwLjUzODE1LDQuNzk0ODU3IDEuMjgyNjksMS42MDMyNDkgMi4yMzQ4NCwzLjQ0NDg2NCAyLjgwMTM5LDUuNDE4MzY5IGwgMy4wOTk5NywxNy41MDIxIC00LjA3NDc1LDIzLjA0MzQyIC02LjcwOTI4LDM4LjUwODE1IDAuMDUyNywtMC4zMTYxNCBjIC0wLjEzNzQ2LDEuMDMwMTYgLTAuNjA5NTMsMS45ODY2NSAtMS4zNDM2MiwyLjcyMjM1IC0xLjMwMTA0LDEuMDk1NDQgLTIuOTM2NDksMS43MTQ5MyAtNC42MzY3OCwxLjc1NjM2IC0xLjc5NTQsLTAuMDIxOCAtMy41MDE5OCwtMC43ODQ1NyAtNC43MTU4MiwtMi4xMDc2MyAtMC42NzI5NCwtMC43NTk3NCAtMS4xMjU0LC0xLjY4ODk3IC0xLjMwODQ5LC0yLjY4NzIzIGwgLTEuMjk5NzEsLTYuNjc0MTYgLTkuNDc1NTUsLTU0LjU2MTI2IDMuODQ2NDMsLTE5LjM2Mzg0OCIKICAgICAgIGZpbGw9InVybCgjZikiCiAgICAgICBpZD0icGF0aDE0IgogICAgICAgc3R5bGU9ImZpbGw6dXJsKCNmKSIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJtIDYwLjYzNjA2NSwzNy44NjQ4ODMgYyAwLjYzMzUyOSwtMy4xMTc2MjkgMi4yODI3MDUsLTUuOTM3Mjg3IDQuNjg5NDc2LC04LjAxNzc3NCAzLjk4NjkzMywtMy4zODk3NzEgNy45MDM2MTEsLTQuOTE3ODAyIDE0LjgzMjQ0MywtNS4xMTEwMDIgMCwwIDkuMjk5OTE2LDAuMjAxOTgxIDE0LjY0ODAyNiw3LjE3NDcyMyAwLDAgMi43NzUwNDYsMi42MzQ1MzcgNC4wNDg0MDYsOS43ODI5MTQgbCAyLjMyNzE3NCwxMy4yOTU2MyA3Ljk0NzUyLDQ0Ljc4NzEyOSAtMy44OTAzMywyMi4wMzM1MDcgYyAtMS4zNDAzNiw2LjU1MzkxIC00LjI4NTI4LDEyLjY3MzA3IC04LjU3MTAzLDE3LjgwOTQ3IC04LjM5NDQxMiw5LjU4MTI5IC0yMC41MzU5OTIsMTUuMDQ0ODQgLTMzLjI3NDIwMywxNC45NzM2NiBIIDMuNjMzNDY1NiBsIDAuMTIyOTQ1MSwtMC4xNTg3NyBDIDE2LjM3NTg0MywxNTQuMzIwMiAyNy4wMTkzNzMsMTQ5Ljg3NjYyIDM1LjI3NDI1NSwxNDEuNDYzNjYgNDMuNTI5MTM4LDEzMy4wNTA3MSA0NS42Mjc5ODYsMTIxLjg4MDI3IDQ1LjYyNzk4NiwxMjEuODgwMjcgTCA0OS44Njk1OSw5Ny44MzU3MjggWiIKICAgICAgIGZpbGw9InVybCgjZykiCiAgICAgICBpZD0icGF0aDE1IgogICAgICAgc3R5bGU9ImZpbGw6dXJsKCNnKSIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJtIDI5NC40NDI0NCwxMzQuOTkxNDggYyAwLDAgLTAuMTY2ODUsNS41MDYxOCA3LjM3NjcxLDEyLjUzMTYyIDcuNTQzNTYsNy4wMjU0MyAyMC45MDk0NCw3LjAyNTQzIDIwLjkwOTQ0LDcuMDI1NDMgbCAzMi4wNDQ3NSwtMC4wNzAzIGMgLTEwLjI2NTkxLDAgLTE4LjYxNzM5LC02LjIwODcyIC0xOC42MTczOSwtNi4yMDg3MiAtMS4zMTYyMSwtMC45MzcxOSAtMi41MjEyNSwtMi4wMjE0MyAtMy41OTE3NSwtMy4yMzE3IC0yLjU0MTQsLTIuODI3NTggLTQuMjQ3MDUsLTYuMzA1NzYgLTQuOTI2NTksLTEwLjA0NjM3IHYgMC4xODQ0MiBsIC02LjM0OTIzLC0zNi4wMDUzNCBjIC0xLjE1ODg5LC02LjkyNTYwNCAtNC44MzMyMywtMTMuMTc5NzkgLTEwLjMxODYxLC0xNy41NjM1OCAtNS40NDE3NiwtNC4yMTE0OTIgLTEyLjEwNTc1LC02LjUzODY0OSAtMTguOTg2MjMsLTYuNjMwMjUyIC03LjgwNTU1LC0wLjA3NTMzIC0xNS40MDI2NiwyLjUxNzk3IC0yMS41MzI5NSw3LjM1MDM1OSAtMy45NzM2NiwzLjExNDU2OCAtNi42OTcyNSw3LjU1MjA5MSAtNy42NzUyOCwxMi41MDUyNjkgbCAtMC43OTAzNiw0LjMxMTg1OSBjIDEuMTQ4MjQsLTIuNjMyNjA1IDMuMTM3MjQsLTQuODEwMDA4IDUuNjU1NDcsLTYuMTkxMTYyIDIuMzQ4NTMsLTEuMjI3Mjc0IDQuOTY0MSwtMS44NTQ3NjggNy42MTM4MSwtMS44MjY2MTMgNC4wNDA4NiwwLjAzMzEzIDcuODc1MTksMS43OTA1MzUgMTAuNTM4MTUsNC44Mjk5ODUgMS4yODM1NiwxLjU5NTUyNSAyLjIyNzg2LDMuNDM2MzA4IDIuNzc1MDUsNS40MDk1ODUgbCA1Ljk0NTI3LDMzLjU3Mjc4IgogICAgICAgZmlsbD0idXJsKCNoKSIKICAgICAgIGlkPSJwYXRoMTYiCiAgICAgICBzdHlsZT0iZmlsbDp1cmwoI2gpIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Im0gODkuODI2NzM1LDQ4LjI4ODg2OCAxOS4zMTk5MzUsNTEuNTMxNTQ0IC03Ljk0NzUyLC00NC43ODcxMjkgLTIuMzI3MTcxLC0xMy4yOTU2MyBjIC0xLjI3MzM2LC03LjE3NDcyMyAtNC4wNDg0MDUsLTkuNzgyOTE0IC00LjA0ODQwNSwtOS43ODI5MTQgLTUuMzQ4MTEsLTYuOTcyNzQyIC0xNC42NDgwMjYsLTcuMTc0NzIzIC0xNC42NDgwMjYsLTcuMTc0NzIzIC02Ljk0NjM5NiwwLjE5MzIgLTEwLjg0NTUxMSwxLjc1NjM1OCAtMTQuODMyNDQ0LDUuMTExMDAyIC0yLjQwMDE0LDIuMDcxMzkxIC00LjA0ODcyNCw0Ljg3NzY4OCAtNC42ODk0NzUsNy45ODI2NDcgMjEuMjA4MDIzLC0xMi40MTc0NTEgMjkuMTczMTA2LDEwLjQxNTIwMyAyOS4xNzMxMDYsMTAuNDE1MjAzIHoiCiAgICAgICBmaWxsPSJ1cmwoI2opIgogICAgICAgb3BhY2l0eT0iMC45IgogICAgICAgaWQ9InBhdGgxNyIKICAgICAgIHN0eWxlPSJmaWxsOnVybCgjaikiIC8+CiAgICA8cGF0aAogICAgICAgZD0ibSAxNzMuNjA1MDEsNzIuMzI0NjI4IGMgMy41MTI3MiwtMi43NDg3MDEgNy45NzM4NywtNC4xODAxMzIgMTIuMTcxNTYsLTIuMTE2NDEyIDMuODM3NjUsMS44OTY4NjcgNi4zNTgwMiw1LjUzMjUyOCA3Ljc5ODIzLDkuNDIyODYxIDAuOTkyMzUsMi42Nzg0NDYgMi4xNDI3Niw1LjU1MDA5MSAzLjEzNTEsOC4yMjg1MzcgMS40NDYwNywzLjkxNjY3OSAyLjg5MjE0LDcuODM2Mjg0IDQuMzM4MjEsMTEuNzU4ODE3IGwgNC44NzM4OSwxMy4xNzI2ODkgNC41MzE0LDEyLjI5NDUgMy4zNDU4Nyw5LjA1NDAzIGMgMC40MzAzLDEuMTg1NTQgMC44NzgxNywyLjM2MjMgMS4zMDg0OCwzLjUxMjcxIEwgMjA0LjA1MTQ4LDc0Ljg4MDEyOSBjIC0wLjc5MDM2LC01LjY1NTQ3MyAtMy45NjA1OSwtOC40MDQxNzMgLTMuOTYwNTksLTguNDA0MTczIC0zLjIzOTMzLC0zLjIyMzYzNSAtNy42NzU0NiwtNC45NTE2MjMgLTEyLjI0MTgxLC00Ljc2ODUxMyAtMy4wMjY4NCwwLjExMTU2MSAtNS45NzMzOSwxLjAwMzk5NiAtOC41NTM0NywyLjU5MDYyOSAtMi43NzkyNiwxLjU3MDk5NyAtNC43OTQzMSw0LjIxMTE5MiAtNS41NzY0Myw3LjMwNjQ0OSB6IgogICAgICAgZmlsbD0idXJsKCNrKSIKICAgICAgIG9wYWNpdHk9IjAuOSIKICAgICAgIGlkPSJwYXRoMTgiCiAgICAgICBzdHlsZT0iZmlsbDp1cmwoI2spIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Im0gMTY1LjQyMDM4LDExOC43NDUxNyAxMy42MjkzNCw3Ny44MzMgYyAwLjI3ODIyLDIuNjI1MjYgMS40MzU2Niw1LjA3OTQgMy4yODQzOSw2Ljk2Mzk2IDIuNjgzNTgsMi42NzE2MiA2LjM1OTMyLDQuMTAzNzIgMTAuMTQyOTcsMy45NTE4MSAyLjUxMDQ3LC0wLjA5MDIgNC45NTQ5MSwtMC44MjgzNSA3LjA5NTY5LC0yLjE0Mjc2IDIuMzAxNDYsLTEuMzA1NTcgMy45NywtMy40OTQzMiA0LjYxOTIyLC02LjA1OTQzIGwgMC4wOTY2LC0wLjYxNDczIGMgLTIuOTI0MzQsMi4yODMyNyAtNi42MTI2OSwzLjQ2ODgxIC0xMC4wOTAyOCwxLjc1NjM2IC03LjQyOTM5LC0zLjY2MjAxIC05LjgyNjgyLC0xNC4yMDAxNSAtMTEuODM3ODUsLTIxLjQyNzU3IC0xLjc1NjM2LC02LjI0Njc4IC0zLjUxMjcyLC0xMi40ODQ3OCAtNS4yNjkwOCwtMTguNzEzOTkgLTMuNzAwMDYsLTEzLjE2NjgzIC03LjQwMzA1LC0yNi4zMzk1MiAtMTEuMTA4OTYsLTM5LjUxODA2IC0wLjE3NTY0LC0wLjY0OTg1IC0wLjQ0Nzg3LC0xLjM1MjM5IC0wLjU2MjA0LC0yLjAyODU5IHoiCiAgICAgICBmaWxsPSJ1cmwoI2wpIgogICAgICAgb3BhY2l0eT0iMC45IgogICAgICAgaWQ9InBhdGgxOSIKICAgICAgIHN0eWxlPSJmaWxsOnVybCgjbCkiIC8+CiAgICA8cGF0aAogICAgICAgZD0ibSAyNTguMTM4NTIsMTE4LjU0MzE5IDYuMTQ3MjYsMzUuNDY5NjUgNC40MjYwMiwyNS4xMjQ3IGMgMC4xMzAzOCwxLjI3MDQ5IDAuNjg3NjIsMi40NTkyNSAxLjU4MDcyLDMuMzcyMjEgMS4yOTkyOCwxLjI5MjQ4IDMuMDc3NzYsMS45ODYwNiA0LjkwOTAyLDEuOTE0NDMgMS4yMTQ0OCwtMC4wNDUzIDIuMzk2OTEsLTAuNDAyMTMgMy40MzM2OCwtMS4wMzYyNSAxLjExMTIzLC0wLjYzMzk1IDEuOTE2NTUsLTEuNjkyOTEgMi4yMzA1OCwtMi45MzMxMiBsIDAuMDQzOSwtMC4yOTg1OCBjIC0xLjMwODk3LDEuMjI4OTIgLTMuMjE4MzIsMS41NzI5NSAtNC44NzM5LDAuODc4MTggLTEuNDg0NTQsLTAuODE1MTggLTIuNjAyNTQsLTIuMTY1NTcgLTMuMTI2MzIsLTMuNzc2MTcgeiIKICAgICAgIGZpbGw9InVybCgjbSkiCiAgICAgICBvcGFjaXR5PSIwLjkiCiAgICAgICBpZD0icGF0aDIwIgogICAgICAgc3R5bGU9ImZpbGw6dXJsKCNtKSIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJtIDI5MS42NDEwNSwxMTguODU5MzMgLTQuMTE4NjYsLTYuNDE5NDggYyAtMi40NzY0NiwtNC42NjMxNCAtNC4xNDUsLTkuMTA2NzIgLTguNTM1OSwtMTIuMzM4NDIgLTMuNjg3NzgsLTIuODcwOTgyIC04LjYwMDEsLTMuNjI1NDQ2IC0xMi45Nzk0OCwtMS45OTM0NjcgLTEuNTU2NTksMC42NDEzMjUgLTMuMDMwNzIsMS40NjY4NDIgLTQuMzkwOSwyLjQ1ODkwNyBsIDAuMjk4NTgsLTEuMzY5OTY1IGMgMS4xNDY2MywtMi42MzU4NyAzLjEzNTgsLTQuODE2NTQ3IDUuNjU1NDgsLTYuMTk5OTQzIDIuMzMxNSwtMS4yMzA2IDQuOTMzNzYsLTEuODU4NTI0IDcuNTY5OSwtMS44MjY2MTMgNC4wMzQ2MSwwLjAyNzU4IDcuODY2NzUsMS43NzEyMDggMTAuNTM4MTUsNC43OTQ4NTggMS4yODI2OCwxLjYwMzI0OCAyLjIzNDgzLDMuNDQ0ODYzIDIuODAxMzksNS40MTgzNjMgbCAzLjA5OTk3LDE3LjUwMjExIgogICAgICAgZmlsbD0idXJsKCNuKSIKICAgICAgIG9wYWNpdHk9IjAuOSIKICAgICAgIGlkPSJwYXRoMjEiCiAgICAgICBzdHlsZT0iZmlsbDp1cmwoI24pIiAvPgogIDwvZz4KPC9zdmc+Cg==" />
+    <style>
+        /* Scrollbar Styles for WebKit Browsers */
+        ::-webkit-scrollbar {
+            width: 12px; /* Width of the scrollbar */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #1b1b1b; /* Color of the scrollbar thumb */
+            border-radius: 10px; /* Rounded corners for the thumb */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Background color of the scrollbar track */
+            border-radius: 10px; /* Rounded corners for the track */
+        }
+
+        /* Scrollbar Styles for Firefox */
+        * {
+            scrollbar-width: thin; /* Make the scrollbar thinner */
+            scrollbar-color: #1b1b1b #f1f1f1; /* Thumb color and track color */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #000;
+            color: #f5c71a;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1b1b1b;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            animation: fadeIn 1.5s ease;
+        }
+
+        header {
+            position: relative;
+        }
+
+        .svg-container {
+            position: absolute;
+            top: -5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f5c71a;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #f5c71a;
+            margin-bottom: 15px;
+            font-size: 24px;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #f5c71a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        .burger {
+            cursor: pointer;
+            display: none;
+            font-size: 30px;
+            color: #f5c71a;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+        
+        .burger-sticked {
+            transform: translateX(-10%); /* Start off-screen */
+            opacity: 0; /* Hidden by default */
+            transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+        }
+
+        .burger-visible {
+            border: 2px solid black;
+            border-radius: 3px;
+            cursor: pointer;
+            transform: translateX(0); /* Move to its place */
+            opacity: 1;
+            font-size: 30px;
+            color: black; /* Semi-transparent */
+            position: fixed; 
+            top: 20px;
+            right: 30px;
+            background: #f5c71a; /* Semi-transparent */
+            z-index: 1000;
+            transition: color 0.3s ease, background 0.3s ease; /* Slow down the color and background change */
+        }
+
+        .burger-visible:hover {
+            color: #ffff;
+            background: rgb(42 127 37); /* Fully opaque on hover */
+        }
+
+        .navbar-sticked {
+            position: relative;
+        }
+
+        .sticky-links {
+            /* display: none; */
+            flex-direction: column;
+            background-color: #1b1b1b;
+            position: fixed;
+            top: 75px;
+            right: 30px;
+            width: 150px;
+            border: 1px solid #f5c71a;
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        .sticky-links {
+            display: none; /* Hidden by default */
+            list-style-type: none; /* Remove bullet points */
+            margin: 0;
+        }
+
+        .sticky-links.visible {
+            display: flex;
+            flex-direction: column;
+            height: 120px;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+        }
+
+        .up-arrow-block {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 20px; /* Adjust positioning */
+            right: 20px; /* Adjust positioning */
+            width: 50px; /* Size of the button */
+            height: 50px; /* Size of the button */
+            background-color: rgba(51, 51, 51, 0.7); /* Semi-transparent background */
+            color: #f5c71a; /* Text color */
+            font-size: 30px;
+            border-radius: 50%; /* Make it round */
+            text-align: center; /* Center text */
+            line-height: 50px; /* Center vertically */
+            cursor: pointer; /* Pointer on hover */
+            z-index: 1000; /* Ensure it's on top */
+            transition: background-color 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+            opacity: 0.7; /* Initial opacity */
+        }
+
+        .up-arrow-block:hover {
+            background-color: rgba(51, 51, 51, 1); /* Fully opaque background on hover */
+            opacity: 1; /* Fully opaque text on hover */
+        }
+
+        .arrow-visible {
+            display: block; /* Show when visible */
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden; /* Prevents overflow */
+            width: 100%;
+            max-width: 600px; /* Adjust as needed */
+            margin: auto;
+            padding: 20px 0; /* Add margin to the top and bottom */
+        }
+
+        .slides {
+            display: flex; /* Align slides in a row */
+            transition: transform 0.5s ease; /* Smooth transition */
+        }
+
+        .slide {
+            cursor: pointer; /* Change cursor to indicate it's clickable */
+            min-width: 100%; /* Each slide takes full width */
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+            opacity: 0; /* Hide slides by default */
+            transition: opacity 0.5s ease; /* Smooth fade in/out */
+            position: absolute; /* Position absolute to overlap slides */
+            top: 0; /* Align slides to the top */
+            left: 0; /* Align slides to the left */
+        }
+
+        .slide.active-slide {
+            opacity: 1; /* Only active slide is visible */
+            position: relative; /* Ensure active slide is positioned normally */
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 5px; /* Margin between dots */
+            background-color: #3498db; /* Change to blue */
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .dot.active-slide {
+            background-color: #3498db; /* Active dot color */
+        }
+
+        .arrow-slide {
+            cursor: pointer;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for half the height */
+            background-color: #3498db; /* Blue background for arrows */
+            border: none;
+            border-radius: 50%; /* Make arrows round */
+            font-size: 24px;
+            padding: 10px;
+            z-index: 10; /* Ensure arrows are on top of other elements */
+        }
+
+        .arrow-slide.left {
+            left: 20px; /* Increase distance from the left */
+        }
+
+        .arrow-slide.right {
+            right: 20px; /* Increase distance from the right */
+        }
+
+        .arrow-slide:hover {
+            background-color: #f5c71a; /* Change to gold on hover */
+            transition: background-color 0.5s; /* Smooth transition */
+        }
+
+        .dots {
+            margin-top: 100px; /* Add space above the dots */
+            text-align: center; /* Center the dots */
+            padding-bottom: 20px; /* Space below the dots to prevent overlap with arrows */
+        }
+
+        .dot {
+            width: 15px; /* Adjust size as needed */
+            height: 15px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .active-slide {
+            background-color: #333; /* Highlight the active dot */
+        }
+
+        .active-slide:hover {
+            transform: scale(1.05); /* Slightly enlarge the active slide */
+            transition: transform 0.3s ease; /* Smooth transition effect */
+            opacity: 0.9; /* Slightly reduce opacity on hover */
+        }
+
+        @media (max-width: 768px) {
+            .slider-container {
+                max-width: 100%; /* Make the slider full width on smaller screens */
+                padding: 10px; /* Adjust padding */
+            }
+            .slide {
+                padding: 10px; /* Reduce padding for slides on smaller screens */
+            }
+            .arrow-slide {
+                font-size: 20px; /* Slightly smaller arrow buttons */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .svg-container {
+                width: 50%;
+                height: auto;
+                position: absolute;
+                margin: auto; 
+                top: -5px;
+            }
+            .svg-container svg {
+                width: 20%; /* Fill container */
+                height: auto; /* Maintain aspect ratio */
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .burger-visible {
+                right: 0px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #1b1b1b;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                width: 150px;
+                border: 1px solid #f5c71a;
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            .nav-links.active {
+                display: flex; 
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .sticky-links {
+                right: 3px;
+            }
+
+            .sticky-links.visible {
+                display: flex;
+                flex-direction: column;
+                height: 160px;
+                justify-content: space-between;
+            }
+        }
+
+        p {
+            margin-bottom: 10px;
+            color: #dcdcdc;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.4s ease;
+        }
+
+        a:hover {
+            color: #f5c71a;
+        }
+
+        .skills {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .skills li {
+            background-color: #f5c71a;
+            color: #000;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.4s ease;
+        }
+
+        .skills li:hover {
+            transform: translateX(10px);
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .portfolio a {
+            display: block;
+            padding: 20px;
+            background-color: #2c2c2c;
+            border: 1px solid #f5c71a;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease, background-color 0.4s ease;
+            text-align: center;
+            color: #f5c71a;
+        }
+
+        .portfolio a:hover {
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .portfolio a span {
+            display: block;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .contacts {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .contacts.visible {
+            max-height: 500px; /* Set a max-height that accommodates content */
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #000;
+            color: #f5c71a;
+            border-top: 1px solid #f5c71a;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #f5c71a;
+            font-size: 18px;
+            transition: color 0.4s ease;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
+        }
+
+        .copyright {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #dcdcdc;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Navigation Styles */
+        .nav-panel-bottom {
+	        margin: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1b1b1b;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(255, 215, 0, 0.3);
+            position: relative;
+            transition: transform 0.7s ease;
+            z-index: 1000;
+        }
+
+        .nav-links-bottom {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-links-bottom a {
+            margin-right: 50px;
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.4s ease;
+        }
+
+        .nav-links-bottom a:hover {
+            color: #f5c71a;
+        }
+
+        .burger-bottom {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .burger-bottom div {
+            width: 30px;
+            height: 4px;
+            background-color: #f5c71a;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+      /* Frame container for 3D visualization */
+        .frame-container {
+            width: 400px;
+            height: 400px;
+            margin-top: 20px;
+            margin: 0 auto;
+            border: 4px solid #333;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none; /* Initially hidden */
+        }
+        @media (max-width: 470px) {
+            .frame-container {
+                width: 280px;
+                height: 280px;
+            }
+        }
+        @media (max-width: 350px) {
+            .frame-container {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        /* Close button styling */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        /* Responsive Styles */
+        @media (max-width: 700px) { 
+            .nav-links-bottom {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: -40px;
+                left: 70px;
+                background-color: #1b1b1b;
+                border-radius: 5px;
+                box-shadow: 0 2px 6px rgba(255, 215, 0, 0.3);
+                padding: 10px;
+            }
+
+            .nav-links-bottom.show {
+                display: flex;
+            }
+
+            .burger-bottom {
+                display: flex;
+            }
+
+            .up-arrow-block {
+                width: 50px; /* Size of the button */
+                height: 50px; /* Size of the button */
+                right: 0px; /* Adjust positioning */
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .svg-container {
+                display: none;
+            }
+
+            .portfolio a {
+                padding: 15px;
+            }
+        }
+        @media (min-width: 390px) and (max-width: 500px) {
+            header h1 {
+                margin-top: 50px;
+            }
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            const visualizationContainer = document.getElementById('3d-visualization');
+            if (visualizationContainer) {
+                visualizationContainer.appendChild(renderer.domElement);
+            } else {
+                console.error("Element with ID '3d-visualization' not found.");
+            }
+        };
+        function showFrame() {
+        const frame = document.getElementById('frame-container');
+        frame.style.display = 'block';
+
+        const visualizationContainer = document.getElementById('3d-visualization');
+        
+        // Переконаємось, що рендерер додається тільки один раз
+        if (visualizationContainer && !visualizationContainer.querySelector("canvas")) {
+            visualizationContainer.appendChild(renderer.domElement);
+        }
+    }
+        document.addEventListener("scroll", function() {
+            const burgerSticked = document.querySelector('.burger-sticked');
+            const navbar = document.querySelector('.navbar');
+            const navPanelBottom = document.querySelector('.nav-panel-bottom');
+            const upArrowBlock = document.querySelector('.up-arrow-block');
+
+            const navbarRect = navbar.getBoundingClientRect();
+            const navPanelBottomRect = navPanelBottom.getBoundingClientRect();
+
+            const isNavbarOutOfView = navbarRect.bottom < 0;
+            const isNavPanelBottomVisible = navPanelBottomRect.top < window.innerHeight && navPanelBottomRect.bottom > 0;
+
+            // Show/hide the burger
+            if (isNavbarOutOfView && !isNavPanelBottomVisible) {
+                burgerSticked.classList.add('burger-visible');
+            } else {
+                burgerSticked.classList.remove('burger-visible');
+            }
+
+            // Show/hide the up arrow block
+            if (isNavPanelBottomVisible) {
+                upArrowBlock.classList.add('arrow-visible');
+            } else {
+                upArrowBlock.classList.remove('arrow-visible');
+            }
+        });
+        // Function to scroll to the top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.addEventListener("scroll", function() {
+            const burgerSticked = document.querySelector('.burger-sticked');
+            const navbar = document.querySelector('.navbar');
+            const navPanelBottom = document.querySelector('.nav-panel-bottom');
+
+            const navbarRect = navbar.getBoundingClientRect();
+            const navPanelBottomRect = navPanelBottom.getBoundingClientRect();
+
+            // Debugging logs
+            console.log('Navbar Rect:', navbarRect);
+            console.log('Nav Panel Bottom Rect:', navPanelBottomRect);
+
+            // Check if the navbar is out of view (above the viewport)
+            const isNavbarOutOfView = navbarRect.bottom < 0;
+
+            // Check if the nav-panel-bottom is visible (partially or fully)
+            const isNavPanelBottomVisible = navPanelBottomRect.top < window.innerHeight && navPanelBottomRect.bottom > 0;
+
+            // Logic to show/hide the burger
+            if (isNavbarOutOfView && !isNavPanelBottomVisible) {
+                // Show the burger only if navbar is out of view and nav-panel-bottom is not visible
+                burgerSticked.classList.add('burger-visible');
+            } else {
+                // Hide the burger if the navbar is visible or nav-panel-bottom is visible
+                burgerSticked.classList.remove('burger-visible');
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Select elements
+            const burgerSticked = document.querySelector('.burger-sticked');
+            const stickyLinks = document.querySelector('.sticky-links');
+            // Toggle sticky links on burger click
+            burgerSticked.addEventListener('click', function(event) {
+                stickyLinks.classList.toggle('visible');
+                event.stopPropagation(); // Prevent the event from bubbling up
+            });
+            // Hide sticky links when clicking on a link
+            stickyLinks.addEventListener('click', function() {
+                stickyLinks.classList.remove('visible');
+            });
+            // Hide sticky links when clicking outside of the menu or burger
+            document.addEventListener('click', function(event) {
+                if (!burgerSticked.contains(event.target) && !stickyLinks.contains(event.target)) {
+                    stickyLinks.classList.remove('visible');
+                }
+            });
+            // Hide sticky links on scroll
+            document.addEventListener('scroll', function() {
+                stickyLinks.classList.remove('visible');
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // const yearSpan = document.getElementById('year');
+            // const dateSpan = document.getElementById('date');
+            // const today = new Date();
+            // yearSpan.textContent = today.getFullYear();
+            // dateSpan.textContent = today.toDateString();
+
+            const burgerBottom = document.querySelector('.burger-bottom');
+            const navLinksBottom = document.querySelector('.nav-links-bottom');
+            const burger = document.querySelector(".burger");
+            const navLinks = document.querySelector(".nav-links");
+            const contactsLink1 = document.querySelector('a[href="#contacts"]'); // First link
+            const contactsLink2 = document.getElementById('bottom-contact'); // Second link (make sure this selector is unique)
+            const contactsSection = document.getElementById('contacts');
+            
+            // Toggle bottom navigation links visibility
+            burgerBottom.addEventListener('click', (event) => {
+                navLinksBottom.classList.toggle('show');
+                event.stopPropagation(); // Prevent click from bubbling up
+            });
+            // Close the bottom nav links if clicking outside of them
+            document.addEventListener("click", function(event) {
+                if (!navLinksBottom.contains(event.target) && !burgerBottom.contains(event.target)) {
+                    navLinksBottom.classList.remove("show");
+                }
+            });
+            // Close the bottom nav links when any of the links are clicked
+            navLinksBottom.addEventListener("click", (event) => {
+                // Check if the clicked element is a link
+                if (event.target.tagName === 'A') {
+                    navLinksBottom.classList.remove("show"); // Use 'show' instead of 'active'
+                }
+            });
+            // Close top nav links when any of the links are clicked
+            navLinks.addEventListener("click", function(event) {
+                navLinks.classList.remove("active");
+            });
+            // Toggle top navigation links visibility
+            burger.addEventListener("click", function(event) {
+                navLinks.classList.toggle("active");
+                event.stopPropagation(); // Prevent the event from bubbling up
+            });
+            // Close the top nav links if clicking outside of them
+            document.addEventListener("click", function(event) {
+                if (!navLinks.contains(event.target) && !burger.contains(event.target)) {
+                    navLinks.classList.remove("active");
+                }
+            });
+            // Toggle visibility of contacts section
+            [contactsLink1, contactsLink2].forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default anchor behavior
+                    contactsSection.classList.toggle('visible'); // Toggle visibility
+                    contactsSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+                });
+            });
+            
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', () => {
+                const st = window.pageYOffset || document.documentElement.scrollTop;
+                const navPanel = document.querySelector('.nav-panel-bottom');
+                navPanel.style.transform = st < lastScrollTop ? 'translateY(50%)' : 'translateY(0%)';
+                lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const sliderContainer = document.querySelector('.slider-container');
+
+            // Create a container for slides
+            const slidesContainer = document.createElement('div');
+            slidesContainer.classList.add('slides');
+            sliderContainer.insertBefore(slidesContainer, sliderContainer.querySelector('.dots'));
+            // Portfolio data in JSON format
+            const portfolioData = [
+                {
+                    "title": "Designs inspired by nature.",
+                    "url": "https://artemvashchinskiy.github.io/NatureCraft/"
+                },        
+                {
+                    "title": "E-Commerce Platform",
+                    "url": "https://artemvashchinskiy.github.io/internet-shop/"
+                },
+                {
+                    "title": "Bryan Adams Official Website",
+                    "url": "https://www.bryanadams.com/"
+                },
+                {
+                    "title": "Creative Paint App",
+                    "url": "https://artemvashchinskiy.github.io/paint/"
+                },
+                {
+                    "title": "Dynamic Filtering UI",
+                    "url": "https://artemvashchinskiy.github.io/filtering-the-elements/"
+                },
+                {
+                    "title": "Coffee Shop Webpage",
+                    "url": "https://artemvashchinskiy.github.io/coffee/" 
+                },
+                {
+                    "title": "Freelancer Portfolio",
+                    "url": "https://artemvashchinskiy.github.io/Freelancer-portfolio/"
+                },
+                {
+                    "title": "Real Estate Showcase",
+                    "url": "https://artemvashchinskiy.github.io/lofthouse.in.ua/#!"
+                },
+                {
+                    "title": "Fusion Travel",
+                    "url": "https://artemvashchinskiy.github.io/Fusion-Travel/#"
+                },
+                {
+                    "title": "DOM-TODO-modules",
+                    "url": "https://artemvashchinskiy.github.io/DOM-TODO-modules/"
+                },
+                {
+                    "title": "Travel Agency Site",
+                    "url": "https://artemvashchinskiy.github.io/travel/"
+                }
+            ];
+            // Function to render portfolio items
+            function renderPortfolio() {
+                const portfolioList = document.getElementById('portfolio-list');
+                portfolioData.forEach(item => {
+                    const projectLink = document.createElement('a');
+                    projectLink.href = item.url;
+                    projectLink.target = '_blank';
+                    projectLink.innerHTML = `${item.title} <span>View Project</span>`;
+                    portfolioList.appendChild(projectLink);
+                });
+            }
+            // Initialize the portfolio rendering
+            renderPortfolio();
+
+            // Create slides and append to slidesContainer
+            portfolioData.forEach((item, index) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.classList.add('slide');
+                if (index === 0) slideDiv.classList.add('active-slide'); // Set first slide as active
+
+                const link = document.createElement('a');
+                link.href = item.url;
+                link.target = "_blank"; // Open in new tab
+                link.textContent = item.title;
+
+                slideDiv.appendChild(link);
+                slidesContainer.appendChild(slideDiv);
+            });
+
+            // Declare portfolioSliderContainer first
+            const portfolioSliderContainer = document.querySelector('.slider-container'); // Change variable name
+
+            // Function to create dots based on screen size and current index in a circular manner
+            function createDots(currentIndex = 0) {
+                const dotsContainer = portfolioSliderContainer.querySelector('.dots'); // Use new variable name
+                dotsContainer.innerHTML = ''; // Clear existing dots
+
+                const totalVisibleDots = window.innerWidth <= 500 ? 5 : 9; // Show 5 dots for smaller screens, 9 for larger
+                const halfVisibleDots = Math.floor(totalVisibleDots / 2);
+
+                // Create a circular range of dots around the current index
+                for (let i = -halfVisibleDots; i <= halfVisibleDots; i++) {
+                    // Calculate circular index using modulo
+                    const circularIndex = (currentIndex + i + portfolioData.length) % portfolioData.length;
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    dot.addEventListener('click', () => goToSlide(circularIndex));
+                    dotsContainer.appendChild(dot);
+
+                    // Set the dot as active if it matches the current index
+                    if (i === 0) {
+                        dot.classList.add('active-slide');
+                    }
+                }
+            }
+
+            // Create dots initially
+            createDots();
+
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                const allSlides = document.querySelectorAll('.slide');
+                allSlides.forEach(slide => {
+                    slide.classList.remove('active-slide');
+                    slide.style.opacity = '0'; // Hide all slides
+                });
+
+                allSlides[index].classList.add('active-slide');
+                allSlides[index].style.opacity = '1'; // Show the active slide
+
+                currentIndex = index;
+                createDots(currentIndex); // Update dots to keep current slide centered when possible
+            }
+
+            // Click to open link on active slide
+            function handleActiveSlideClick() {
+                const activeSlide = document.querySelector('.active-slide a'); // Get the link in the active slide
+                if (activeSlide) {
+                    window.open(activeSlide.href, '_blank'); // Open the link in a new tab
+                }
+            }
+
+            // Attach event listener to active slide
+            slidesContainer.addEventListener('click', (event) => {
+                if (event.target.closest('.active-slide')) {
+                    handleActiveSlideClick();
+                }
+            });
+
+            function goToSlide(index) {
+                if (index < 0) {
+                    currentIndex = portfolioData.length - 1;
+                } else if (index >= portfolioData.length) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex = index;
+                }
+                showSlide(currentIndex);
+            }
+
+            // Attach event listeners to arrows
+            document.querySelector('.arrow-slide.left').addEventListener('click', () => goToSlide(currentIndex - 1));
+            document.querySelector('.arrow-slide.right').addEventListener('click', () => goToSlide(currentIndex + 1));
+
+            // Handle window resize to update dots
+            window.addEventListener('resize', () => createDots(currentIndex));
+
+            // Pause auto-slide on mouse enter and resume on mouse leave
+            let autoSlideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000); // Change slide every 5 seconds
+
+            portfolioSliderContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval); // Stop auto-slide
+            });
+
+            portfolioSliderContainer.addEventListener('mouseleave', () => {
+                autoSlideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000); // Restart auto-slide
+            });
+
+/*
+            // Create slides and append to slidesContainer
+            portfolioData.forEach((item, index) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.classList.add('slide');
+                if (index === 0) slideDiv.classList.add('active-slide'); // Set first slide as active
+
+                const link = document.createElement('a');
+                link.href = item.url;
+                link.target = "_blank"; // Open in new tab
+                link.textContent = item.title;
+
+                slideDiv.appendChild(link);
+                slidesContainer.appendChild(slideDiv);
+            });
+            // Create dots
+            const dotsContainer = sliderContainer.querySelector('.dots');
+            portfolioData.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = document.querySelectorAll('.dot');
+            dots[0].classList.add('active'); // Set first dot as active
+
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                const allSlides = document.querySelectorAll('.slide');
+                allSlides.forEach(slide => {
+                    slide.classList.remove('active-slide');
+                    slide.style.opacity = '0'; // Hide all slides
+                });
+                dots.forEach(dot => dot.classList.remove('active-slide'));
+
+                allSlides[index].classList.add('active-slide');
+                allSlides[index].style.opacity = '1'; // Show the active slide
+                dots[index].classList.add('active-slide');
+
+                currentIndex = index;
+            }
+
+            function goToSlide(index) {
+                if (index < 0) {
+                    currentIndex = portfolioData.length - 1;
+                } else if (index >= portfolioData.length) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex = index;
+                }
+                showSlide(currentIndex);
+            }
+
+            // Attach event listeners to arrows
+            document.querySelector('.arrow-slide.left').addEventListener('click', () => goToSlide(currentIndex - 1));
+            document.querySelector('.arrow-slide.right').addEventListener('click', () => goToSlide(currentIndex + 1));
+
+            // Auto-slide functionality (optional)
+            setInterval(() => goToSlide(currentIndex + 1), 5000); // Change slide every 5 seconds
+*/
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const data = {
+                "contact": {
+                    "phone": "+380668744748",
+                    "email": "artuom.vashchinskiy67@gmail.com"
+                },
+                "socialMedia": [
+                    {
+                        "platform": "Patreon",
+                        "url": "https://www.patreon.com/whitebird_profile"
+                    },
+                    {
+                        "platform": "Facebook",
+                        "url": "https://www.facebook.com/whitebird.profile"
+                    },
+                    {
+                        "platform": "Medium",
+                        "url": "https://medium.com/@whitebird-profile"
+                    },
+                    {
+                        "platform": "LinkedIn",
+                        "url": "https://www.linkedin.com/in/whitebird-profile-vortex-6ba889233/"
+                    },
+                    {
+                        "platform": "Twitter",
+                        "url": "https://x.com/whiteb_profile"
+                    },
+                    {
+                        "platform": "Instagram",
+                        "url": "https://www.instagram.com/whitebird_profile/"
+                    },
+                    {
+                        "platform": "Pexels",
+                        "url": "https://www.pexels.com/@whitebird-profile-644794262/"
+                    }
+                ],
+                "footer": {
+                "copyright": "&copy; Artem Vashchinskiy. All rights reserved. <br> Today's date: "
+                }
+            };
+            // Function to render contact info
+            function renderContactInfo() {
+                const contactInfoDiv = document.getElementById('contact-info');
+                contactInfoDiv.innerHTML = `
+                    <p><strong>Phone:</strong> <a href="tel:${data.contact.phone}">${data.contact.phone}</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
+                `;
+            }
+            // Function to render social media links
+            function renderSocialMedia(containerId) {
+                const socialLinksDiv = document.getElementById(containerId);
+                data.socialMedia.forEach(link => {
+                    const socialLink = document.createElement('a');
+                    socialLink.href = link.url;
+                    socialLink.target = '_blank';
+                    socialLink.innerText = link.platform;
+                    socialLinksDiv.appendChild(socialLink);
+                });
+            }
+            // Function to render footer
+            function renderFooter() {
+                const footerCopyrightDiv = document.getElementById('footer-copyright');
+                footerCopyrightDiv.innerHTML = data.footer.copyright;
+            }
+            // Initialize rendering
+            renderContactInfo();
+            renderSocialMedia('contact-social-links');
+            renderSocialMedia('footer-social-links');
+            renderFooter();
+        });
+
+        // Define the data object globally
+    const data = {
+        "footer": {
+            "copyright": `&copy; <a href="https://artemvashchinskiy.github.io/layout-designer/" target="_blank" rel="noopener noreferrer">Artem Vashchinskiy</a>. All rights reserved.`
+        }
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Ensure elements are available before trying to access them
+        const yearSpan = document.getElementById('year');
+        const dateSpan = document.getElementById('date');
+        const footerCopyrightDiv = document.getElementById('footer-copyright');
+
+        // Get the current year and date
+        const today = new Date();
+        const year = today.getFullYear();
+        const date = today.toDateString();
+
+        // Check if yearSpan and dateSpan exist
+        if (yearSpan) {
+            yearSpan.textContent = year; // Set year text
+        } else {
+            console.error("Year element not found.");
+        }
+
+        if (dateSpan) {
+            dateSpan.textContent = date; // Set date text
+        } else {
+            console.error("Date element not found.");
+        }
+
+        // Function to render footer
+        function renderFooter() {
+            if (footerCopyrightDiv) {
+                // Set the copyright text with the date appended
+                footerCopyrightDiv.innerHTML = `${data.footer.copyright} <br> Today's date: <span id="footer-date">${date}</span>`;
+            } else {
+                console.error("Footer copyright element not found.");
+            }
+        }
+
+        // Call this function to render the footer
+        renderFooter();
+    });
+
+ 
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Artem Vashchinskiy</h1> 
+            <div class="svg-container">
+                <svg
+                height="100"
+                viewBox="0 0 355 240"
+                width="100"
+                version="1.1"
+                id="svg21"
+                sodipodi:docname="fifth-wave.svg"
+                inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:svg="http://www.w3.org/2000/svg">
+                <defs
+                    id="defs21" />
+                <sodipodi:namedview
+                    id="namedview21"
+                    pagecolor="#ffffff"
+                    bordercolor="#000000"
+                    borderopacity="0.25"
+                    inkscape:showpageshadow="2"
+                    inkscape:pageopacity="0.0"
+                    inkscape:pagecheckerboard="0"
+                    inkscape:deskcolor="#d1d1d1"
+                    inkscape:zoom="1.4507042"
+                    inkscape:cx="177.5"
+                    inkscape:cy="120.28641"
+                    inkscape:window-width="1366"
+                    inkscape:window-height="705"
+                    inkscape:window-x="-8"
+                    inkscape:window-y="-8"
+                    inkscape:window-maximized="1"
+                    inkscape:current-layer="svg21" />
+                <linearGradient
+                    id="a">
+                    <stop
+                    offset="0"
+                    stop-color="#546db4"
+                    id="stop1" />
+                    <stop
+                    offset=".5"
+                    stop-color="#5089b9"
+                    id="stop2" />
+                    <stop
+                    offset="1"
+                    stop-color="#546db4"
+                    id="stop3" />
+                </linearGradient>
+                <linearGradient
+                    id="b"
+                    x1="318.98104"
+                    x2="332.98017"
+                    xlink:href="#a"
+                    y1="107.54591"
+                    y2="48.814865"
+                    gradientTransform="scale(0.58347771,1.7138615)"
+                    gradientUnits="userSpaceOnUse" />
+                <linearGradient
+                    id="c"
+                    x1="148.31957"
+                    x2="197.85318"
+                    y1="4.8258392"
+                    y2="181.03128"
+                    gradientTransform="scale(0.77644299,1.2879246)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop
+                    offset="0"
+                    stop-color="#49c2c2"
+                    id="stop4" />
+                    <stop
+                    offset="1"
+                    stop-color="#5280b7"
+                    id="stop5" />
+                </linearGradient>
+                <linearGradient
+                    id="d">
+                    <stop
+                    offset="0"
+                    stop-color="#5280b7"
+                    id="stop6" />
+                    <stop
+                    offset="1"
+                    stop-color="#49c2c2"
+                    id="stop7" />
+                </linearGradient>
+                <linearGradient
+                    id="e"
+                    x1="268.20028"
+                    x2="298.96487"
+                    xlink:href="#d"
+                    y1="149.59091"
+                    y2="47.637323"
+                    gradientTransform="scale(0.8043829,1.243189)"
+                    gradientUnits="userSpaceOnUse" />
+                <linearGradient
+                    id="f"
+                    x1="453.85386"
+                    x2="463.75563"
+                    xlink:href="#a"
+                    y1="101.32581"
+                    y2="61.89627"
+                    gradientTransform="scale(0.59889555,1.6697402)"
+                    gradientUnits="userSpaceOnUse" />
+                <linearGradient
+                    id="g"
+                    x1="26.69439"
+                    x2="105.05521"
+                    y1="142.75078"
+                    y2="46.302552"
+                    gradientTransform="scale(0.90132908,1.1094727)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop
+                    offset="0"
+                    stop-color="#5089b9"
+                    id="stop8" />
+                    <stop
+                    offset="1"
+                    stop-color="#546db4"
+                    id="stop9" />
+                </linearGradient>
+                <linearGradient
+                    id="h"
+                    x1="279.5664"
+                    x2="296.60384"
+                    xlink:href="#d"
+                    y1="152.04252"
+                    y2="97.511256"
+                    gradientTransform="scale(1.0798486,0.92605572)"
+                    gradientUnits="userSpaceOnUse" />
+                <linearGradient
+                    id="i">
+                    <stop
+                    offset="0"
+                    stop-color="#546db4"
+                    stop-opacity=".6"
+                    id="stop10" />
+                    <stop
+                    offset="1"
+                    stop-color="#3f5287"
+                    id="stop11" />
+                </linearGradient>
+                <linearGradient
+                    id="j"
+                    x1="101.93117"
+                    x2="116.2788"
+                    xlink:href="#i"
+                    y1="62.6303"
+                    y2="30.925996"
+                    gradientTransform="scale(0.80388174,1.2439641)"
+                    gradientUnits="userSpaceOnUse" />
+                <linearGradient
+                    id="k"
+                    x1="259.30965"
+                    x2="270.88641"
+                    xlink:href="#i"
+                    y1="86.365648"
+                    y2="56.103024"
+                    gradientTransform="scale(0.7391818,1.3528472)"
+                    gradientUnits="userSpaceOnUse" />
+                <linearGradient
+                    id="l"
+                    x1="270.18624"
+                    x2="283.52599"
+                    xlink:href="#i"
+                    y1="83.227792"
+                    y2="135.99427"
+                    gradientTransform="scale(0.66174281,1.5111611)"
+                    gradientUnits="userSpaceOnUse" />
+                <linearGradient
+                    id="m"
+                    x1="454.24286"
+                    x2="460.99114"
+                    xlink:href="#i"
+                    y1="72.865436"
+                    y2="106.68646"
+                    gradientTransform="scale(0.58789003,1.7009984)"
+                    gradientUnits="userSpaceOnUse" />
+                <linearGradient
+                    id="n"
+                    x1="264.89999"
+                    x2="274.79712"
+                    xlink:href="#i"
+                    y1="114.04201"
+                    y2="100.99588"
+                    gradientTransform="scale(1.0408112,0.96078901)"
+                    gradientUnits="userSpaceOnUse" />
+                <g
+                    fill="none"
+                    fill-rule="nonzero"
+                    id="g21"
+                    transform="rotate(90,179.2034,121.22944)">
+                    <path
+                    d="m 173.71039,71.586957 -8.29001,47.158213 13.99818,79.42251 c 0.42266,1.63859 1.17905,3.17228 2.22179,4.50506 2.58216,2.98314 6.30397,4.73721 10.24835,4.82998 3.51241,0.0515 6.91939,-1.19992 9.56337,-3.51271 1.4634,-1.34328 2.46014,-3.11836 2.8453,-5.0671 l 0.87818,-4.97927 7.94752,-45.29648 1.94077,-11.00358 -11.05627,-62.772233 c -0.79036,-5.655473 -3.96059,-8.404173 -3.96059,-8.404173 -3.23933,-3.223634 -7.67546,-4.951623 -12.24181,-4.768512 -3.02684,0.111561 -5.97339,1.003995 -8.55347,2.590628 -2.77926,1.570998 -4.79431,4.211192 -5.57643,7.306449"
+                    fill="url(#b)"
+                    id="path11"
+                    style="fill:url(#b)" />
+                    <path
+                    d="m 204.34128,198.88779 c -0.38516,1.94874 -1.3819,3.72381 -2.8453,5.06709 -2.64398,2.31279 -6.05096,3.56421 -9.56337,3.51272 -3.94438,-0.0928 -7.66619,-1.84684 -10.24835,-4.82999 -1.04275,-1.33278 -1.79913,-2.86647 -2.22179,-4.50506 L 159.55415,85.339241 151.38708,39.726623 C 149.87016,29.095215 144.41302,19.422197 136.09799,12.626019 127.56143,5.7605878 116.93998,2.0094726 105.98523,1.9912709 92.513963,1.569745 81.457689,7.9014156 81.457689,7.9014156 64.210254,16.683206 61.479117,32.832918 61.479117,32.832918 l -0.93087,5.269074 c 0.647125,-3.130981 2.30382,-5.963098 4.715821,-8.061684 3.986933,-3.398552 7.850921,-5.084656 14.806098,-5.269074 0,0 9.335043,0.201982 14.683153,7.174723 0,0 2.810173,2.634537 4.074751,9.782914 l 2.34474,13.29563 27.76802,156.447589 c 0,0 1.34361,12.43502 13.87523,21.78762 0,0 9.78291,7.19229 21.07629,7.22774 11.29338,0.0348 20.86554,-2.79293 29.73514,-10.93365 0,0 6.27898,-5.89258 7.56991,-13.2166 z"
+                    fill="url(#c)"
+                    id="path12"
+                    style="fill:url(#c)" />
+                    <path
+                    d="m 173.71039,71.586957 0.82549,-4.724603 c 1.4844,-6.199851 4.946,-11.748282 9.86195,-15.807222 7.78725,-6.275154 17.51295,-9.649506 27.51335,-9.545806 9.736,0.008 19.14155,3.53198 26.48588,9.923423 8.21097,7.025432 10.66988,15.236406 12.0574,23.403471 l 17.27378,98.22432 1.17676,6.68294 c 0.18581,0.97996 0.63514,1.89077 1.2997,2.63454 1.20542,1.32963 2.9124,2.09395 4.70704,2.10763 1.70112,-0.0372 3.33792,-0.65721 4.63679,-1.75636 0.73624,-0.73524 1.21127,-1.69147 1.35239,-2.72235 l -0.0615,0.32492 -1.45778,8.46565 c -1.70374,5.82306 -5.58031,10.76858 -10.82794,13.81375 -5.1944,3.06241 -11.13024,4.63902 -17.15962,4.55775 -13.04096,-0.44787 -19.96979,-7.90361 -19.96979,-7.90361 -7.34158,-6.86736 -8.0529,-14.71828 -8.0529,-14.71828 L 216.55675,145.90725 204.0427,74.853783 c -0.79036,-5.655473 -3.96059,-8.404173 -3.96059,-8.404173 -3.23934,-3.223634 -7.67546,-4.951623 -12.24182,-4.768512 -3.02683,0.111561 -5.97338,1.003996 -8.55346,2.590628 -2.78116,1.573003 -4.79647,4.216709 -5.57644,7.315231 z"
+                    fill="url(#e)"
+                    id="path13"
+                    style="fill:url(#e)" />
+                    <path
+                    d="m 261.98495,99.17056 c 1.14662,-2.63587 3.13579,-4.816548 5.65547,-6.199944 2.3315,-1.2306 4.93376,-1.858524 7.5699,-1.826612 4.03461,0.02758 7.86675,1.771208 10.53815,4.794857 1.28269,1.603249 2.23484,3.444864 2.80139,5.418369 l 3.09997,17.5021 -4.07475,23.04342 -6.70928,38.50815 0.0527,-0.31614 c -0.13746,1.03016 -0.60953,1.98665 -1.34362,2.72235 -1.30104,1.09544 -2.93649,1.71493 -4.63678,1.75636 -1.7954,-0.0218 -3.50198,-0.78457 -4.71582,-2.10763 -0.67294,-0.75974 -1.1254,-1.68897 -1.30849,-2.68723 l -1.29971,-6.67416 -9.47555,-54.56126 3.84643,-19.363848"
+                    fill="url(#f)"
+                    id="path14"
+                    style="fill:url(#f)" />
+                    <path
+                    d="m 60.636065,37.864883 c 0.633529,-3.117629 2.282705,-5.937287 4.689476,-8.017774 3.986933,-3.389771 7.903611,-4.917802 14.832443,-5.111002 0,0 9.299916,0.201981 14.648026,7.174723 0,0 2.775046,2.634537 4.048406,9.782914 l 2.327174,13.29563 7.94752,44.787129 -3.89033,22.033507 c -1.34036,6.55391 -4.28528,12.67307 -8.57103,17.80947 -8.394412,9.58129 -20.535992,15.04484 -33.274203,14.97366 H 3.6334656 l 0.1229451,-0.15877 C 16.375843,154.3202 27.019373,149.87662 35.274255,141.46366 43.529138,133.05071 45.627986,121.88027 45.627986,121.88027 L 49.86959,97.835728 Z"
+                    fill="url(#g)"
+                    id="path15"
+                    style="fill:url(#g)" />
+                    <path
+                    d="m 294.44244,134.99148 c 0,0 -0.16685,5.50618 7.37671,12.53162 7.54356,7.02543 20.90944,7.02543 20.90944,7.02543 l 32.04475,-0.0703 c -10.26591,0 -18.61739,-6.20872 -18.61739,-6.20872 -1.31621,-0.93719 -2.52125,-2.02143 -3.59175,-3.2317 -2.5414,-2.82758 -4.24705,-6.30576 -4.92659,-10.04637 v 0.18442 l -6.34923,-36.00534 c -1.15889,-6.925604 -4.83323,-13.17979 -10.31861,-17.56358 -5.44176,-4.211492 -12.10575,-6.538649 -18.98623,-6.630252 -7.80555,-0.07533 -15.40266,2.51797 -21.53295,7.350359 -3.97366,3.114568 -6.69725,7.552091 -7.67528,12.505269 l -0.79036,4.311859 c 1.14824,-2.632605 3.13724,-4.810008 5.65547,-6.191162 2.34853,-1.227274 4.9641,-1.854768 7.61381,-1.826613 4.04086,0.03313 7.87519,1.790535 10.53815,4.829985 1.28356,1.595525 2.22786,3.436308 2.77505,5.409585 l 5.94527,33.57278"
+                    fill="url(#h)"
+                    id="path16"
+                    style="fill:url(#h)" />
+                    <path
+                    d="m 89.826735,48.288868 19.319935,51.531544 -7.94752,-44.787129 -2.327171,-13.29563 c -1.27336,-7.174723 -4.048405,-9.782914 -4.048405,-9.782914 -5.34811,-6.972742 -14.648026,-7.174723 -14.648026,-7.174723 -6.946396,0.1932 -10.845511,1.756358 -14.832444,5.111002 -2.40014,2.071391 -4.048724,4.877688 -4.689475,7.982647 21.208023,-12.417451 29.173106,10.415203 29.173106,10.415203 z"
+                    fill="url(#j)"
+                    opacity="0.9"
+                    id="path17"
+                    style="fill:url(#j)" />
+                    <path
+                    d="m 173.60501,72.324628 c 3.51272,-2.748701 7.97387,-4.180132 12.17156,-2.116412 3.83765,1.896867 6.35802,5.532528 7.79823,9.422861 0.99235,2.678446 2.14276,5.550091 3.1351,8.228537 1.44607,3.916679 2.89214,7.836284 4.33821,11.758817 l 4.87389,13.172689 4.5314,12.2945 3.34587,9.05403 c 0.4303,1.18554 0.87817,2.3623 1.30848,3.51271 L 204.05148,74.880129 c -0.79036,-5.655473 -3.96059,-8.404173 -3.96059,-8.404173 -3.23933,-3.223635 -7.67546,-4.951623 -12.24181,-4.768513 -3.02684,0.111561 -5.97339,1.003996 -8.55347,2.590629 -2.77926,1.570997 -4.79431,4.211192 -5.57643,7.306449 z"
+                    fill="url(#k)"
+                    opacity="0.9"
+                    id="path18"
+                    style="fill:url(#k)" />
+                    <path
+                    d="m 165.42038,118.74517 13.62934,77.833 c 0.27822,2.62526 1.43566,5.0794 3.28439,6.96396 2.68358,2.67162 6.35932,4.10372 10.14297,3.95181 2.51047,-0.0902 4.95491,-0.82835 7.09569,-2.14276 2.30146,-1.30557 3.97,-3.49432 4.61922,-6.05943 l 0.0966,-0.61473 c -2.92434,2.28327 -6.61269,3.46881 -10.09028,1.75636 -7.42939,-3.66201 -9.82682,-14.20015 -11.83785,-21.42757 -1.75636,-6.24678 -3.51272,-12.48478 -5.26908,-18.71399 -3.70006,-13.16683 -7.40305,-26.33952 -11.10896,-39.51806 -0.17564,-0.64985 -0.44787,-1.35239 -0.56204,-2.02859 z"
+                    fill="url(#l)"
+                    opacity="0.9"
+                    id="path19"
+                    style="fill:url(#l)" />
+                    <path
+                    d="m 258.13852,118.54319 6.14726,35.46965 4.42602,25.1247 c 0.13038,1.27049 0.68762,2.45925 1.58072,3.37221 1.29928,1.29248 3.07776,1.98606 4.90902,1.91443 1.21448,-0.0453 2.39691,-0.40213 3.43368,-1.03625 1.11123,-0.63395 1.91655,-1.69291 2.23058,-2.93312 l 0.0439,-0.29858 c -1.30897,1.22892 -3.21832,1.57295 -4.8739,0.87818 -1.48454,-0.81518 -2.60254,-2.16557 -3.12632,-3.77617 z"
+                    fill="url(#m)"
+                    opacity="0.9"
+                    id="path20"
+                    style="fill:url(#m)" />
+                    <path
+                    d="m 291.64105,118.85933 -4.11866,-6.41948 c -2.47646,-4.66314 -4.145,-9.10672 -8.5359,-12.33842 -3.68778,-2.870982 -8.6001,-3.625446 -12.97948,-1.993467 -1.55659,0.641325 -3.03072,1.466842 -4.3909,2.458907 l 0.29858,-1.369965 c 1.14663,-2.63587 3.1358,-4.816547 5.65548,-6.199943 2.3315,-1.2306 4.93376,-1.858524 7.5699,-1.826613 4.03461,0.02758 7.86675,1.771208 10.53815,4.794858 1.28268,1.603248 2.23483,3.444863 2.80139,5.418363 l 3.09997,17.50211"
+                    fill="url(#n)"
+                    opacity="0.9"
+                    id="path21"
+                    style="fill:url(#n)" />
+                </g>
+                </svg>  
+            </div>
+        </header>
+        <nav class="navbar">
+            <span class="burger">&#9776;</span>
+            <ul class="nav-links">
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
+        </nav>
+        <nav class="navbar-sticked">
+            <span class="burger-sticked">&#9776;</span>
+            <ul class="sticky-links">
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
+        </nav>        
+        <p><strong>Layout Designer & Frontend Developer</strong></p>
+        <p>As a passionate and dedicated layout designer, I specialize in creating elegant, responsive websites using HTML and CSS. My designs are crafted with attention to detail, ensuring that each layout adapts beautifully to different screen sizes while incorporating smooth and picturesque animations. I thrive on transforming concepts into visually stunning, user-friendly digital experiences.</p>
+        <section id="skills" class="skills">
+            <h2>Skills</h2>
+            <ul class="skills">
+                <li>HTML5 & CSS3</li>
+                <li>Responsive Design</li>
+                <li>Beautiful Animations</li>
+                <li>Creative Problem Solving</li>
+            </ul>
+        </section>        
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="portfolio" id="portfolio-list"></div>
+        </section>
+        <div class="slider-container">
+            <button class="arrow-slide left">&lt;</button>
+            <button class="arrow-slide right">&gt;</button>
+            <div class="dots"></div>
+        </div>
+        <section id="contacts" class="contacts hidden">
+            <h2>Contacts</h2>
+            <div id="contact-info"></div> <!-- Placeholder for dynamic contact info -->
+            <h3>Social Media</h3>
+            <div id="contact-social-links" class="social-links"></div>
+        </section>
+        <!-- Navigation Panel-bottom -->
+        <div class="nav-panel-bottom">
+            <div class="burger-bottom">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="nav-links-bottom">
+                <a href="#skills">Skills</a>
+                <a href="#portfolio">Portfolio</a>
+                <a id="bottom-contact" href="#contacts">Contacts</a>
+		        <a href="javascript:void(0);" onclick="showFrame()">3DsMax</a>
+                <a href="https://raw.githubusercontent.com/artemvashchinskiy/layout-designer/main/artemvashchinskiy_github.pdf" download>Resume</a>
+            </div> 
+        </div>
+        <div class="frame-container" id="frame-container">
+            <!-- Close button to close the frame -->
+            <button class="close-btn" onclick="closeFrame()">X</button>
+            <div id="3d-visualization"></div>
+        </div>
+    <!-- 3D Visualization frame --> 
+        <div class="up-arrow-block" onclick="scrollToTop()">
+            &#8679; <!-- Up arrow symbol -->
+        </div>
+    </div>
+
+  <footer class="footer">
+    <div id="footer-social-links" class="social-links"></div>
+    <p id="footer-copyright" class="copyright"></p> <!-- Placeholder for dynamic copyright info -->
+    <span id="year" style="display:none;"></span> <!-- Hidden span for year -->
+    <span id="date" style="display:none;"></span> <!-- Hidden span for date -->
+</footer>
+<script>
+    // Function to show the frame
+    // Function to toggle the frame container with delay
+    function showFrame() {
+        const frame = document.getElementById('frame-container');
+        
+        // Set a delay (in milliseconds, e.g., 500ms = 0.5 seconds)
+        setTimeout(function() {
+            // Check the current display state and toggle it
+            if (frame.style.display === 'block') {
+                frame.style.display = 'none';  // Hide the frame if it's already displayed
+            } else {
+                frame.style.display = 'block'; // Show the frame if it's hidden
+            }
+        }, 500); // 500ms delay
+    }
+
+    // Function to close the frame
+    function closeFrame() {
+        const frame = document.getElementById('frame-container');
+        frame.style.display = 'none';
+    }
+
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000); // Aspect ratio set to 1 (square)
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(400, 400); // Set canvas size to match frame container
+    document.getElementById('3d-visualization').appendChild(renderer.domElement);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 10, 5);
+    scene.add(directionalLight);
+
+    // Materials
+    const material = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
+    const roofMaterial = new THREE.MeshStandardMaterial({ color: 0xB22222 });
+    const doorMaterial = new THREE.MeshStandardMaterial({ color: 0x654321 });
+    const windowMaterial = new THREE.MeshStandardMaterial({ color: 0x87CEEB });
+    const grassMaterial = new THREE.MeshStandardMaterial({ color: 0x228B22 });
+    const treeTrunkMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
+    const treeLeavesMaterial = new THREE.MeshStandardMaterial({ color: 0x228B22 });
+    const fenceMaterial = new THREE.MeshStandardMaterial({ color: 0xA0522D });
+    const pondMaterial = new THREE.MeshStandardMaterial({ color: 0x1E90FF, transparent: true, opacity: 0.7 });
+
+    // Ground with vertical thickness
+    const ground = new THREE.Mesh(new THREE.BoxGeometry(12, 0.3, 12), grassMaterial);
+    ground.position.y = -0.25;
+    scene.add(ground);
+
+    // House Model (Basic Structure)
+    const houseBase = new THREE.Mesh(new THREE.BoxGeometry(4, 2, 4), material);
+    houseBase.position.y = 1;
+    scene.add(houseBase);
+
+    const roof = new THREE.Mesh(new THREE.ConeGeometry(3, 2, 4), roofMaterial);
+    roof.position.y = 3;
+    roof.rotation.y = Math.PI / 4;
+    scene.add(roof);
+
+    // Door
+    const door = new THREE.Mesh(new THREE.BoxGeometry(0.8, 1.2, 0.1), doorMaterial);
+    door.position.set(0, 0.6, 2.01);
+    scene.add(door);
+
+    // Windows
+    const window1 = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.6, 0.1), windowMaterial);
+    window1.position.set(-1, 1.2, 2.01);
+    scene.add(window1);
+
+    const window2 = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.6, 0.1), windowMaterial);
+    window2.position.set(1, 1.2, 2.01);
+    scene.add(window2);
+
+    // Tree
+    const treeTrunk = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1.5), treeTrunkMaterial);
+    treeTrunk.position.set(-3, 0.75, -3);
+    scene.add(treeTrunk);
+
+    const treeLeaves = new THREE.Mesh(new THREE.SphereGeometry(1), treeLeavesMaterial);
+    treeLeaves.position.set(-3, 1.8, -3);
+    scene.add(treeLeaves);
+
+    // Fence
+    for (let i = -5; i <= 5; i += 1) {
+        const fencePost1 = new THREE.Mesh(new THREE.BoxGeometry(0.2, 1, 0.2), fenceMaterial);
+        fencePost1.position.set(i, 0.5, -5);
+        scene.add(fencePost1);
+
+        const fencePost2 = new THREE.Mesh(new THREE.BoxGeometry(0.2, 1, 0.2), fenceMaterial);
+        fencePost2.position.set(i, 0.5, 5);
+        scene.add(fencePost2);
+    }
+    for (let i = -5; i <= 5; i += 1) {
+        const fencePost1 = new THREE.Mesh(new THREE.BoxGeometry(0.2, 1, 0.2), fenceMaterial);
+        fencePost1.position.set(-5, 0.5, i);
+        scene.add(fencePost1);
+
+        const fencePost2 = new THREE.Mesh(new THREE.BoxGeometry(0.2, 1, 0.2), fenceMaterial);
+        fencePost2.position.set(5, 0.5, i);
+        scene.add(fencePost2);
+    }
+
+    // Pond
+    const pond = new THREE.Mesh(new THREE.CircleGeometry(1.5, 32), pondMaterial);
+    pond.rotation.x = -Math.PI / 2;
+    pond.position.set(3.2, 0.03, -3.2);
+    scene.add(pond);
+
+    // Camera Position
+    camera.position.set(6, 4, 6);
+    camera.lookAt(0, 1, 0);
+
+    // Controls
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.1;
+    controls.rotateSpeed = 0.5;
+    controls.zoomSpeed = 0.5;
+
+    // Animation Loop
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+    }
+    animate();
+    // Function to set renderer size based on device width
+    function updateRendererSize() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+    // Adjust renderer size based on window width
+    if (width < 350) {
+        renderer.setSize(250, 250); // Smaller size for very small screens
+    } else if (width < 470) {
+        renderer.setSize(280, 280); // Smaller size for small screens
+    } else {
+        renderer.setSize(400, 400); // Default size for larger screens
+    }
+}
+
+    // Initial size update
+    updateRendererSize();
+
+    // Event listener to handle resizing the window and adjust renderer size accordingly
+    window.addEventListener('resize', updateRendererSize);
+
+</script>
+
+</body>
+</html>
